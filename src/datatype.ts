@@ -96,3 +96,37 @@ enum E { a, b }
 
 
 // 接口
+interface List {
+  readonly id: number;
+  name: string;
+  age?: number;
+  [key: string]: any
+}
+
+interface Result {
+  data: List[]
+}
+
+function render(result: Result) {
+  result.data.forEach(value => {
+    console.log(value.id, value.name)
+  })
+}
+
+let result = {
+  data: [
+    {
+      id: 1, name: 'a', sex: 'male'
+    }
+  ]
+}
+
+render(result)
+
+render({
+  data: [
+    {
+      id: 1, name: 'a', sex: 'male'
+    }
+  ]
+} as Result)
